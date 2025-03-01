@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطة إبراهيم البسيطة</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8f9fa;
+            padding-bottom: 60px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4a90e2, #3182ce);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+        
+        .nav-pills {
+            margin-bottom: 15px;
+            overflow-x: auto;
+            white-space: nowrap;
+            flex-wrap: nowrap;
+            padding-bottom: 5px;
+            justify-content: center;
+        }
+        
+        .nav-pills .nav-link {
+            color: #495057;
+            border-radius: 20px;
+            padding: 8px 20px;
+            margin: 0 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-pills .nav-link.active {
+            background-color: #4a90e2;
+            box-shadow: 0 2px 5px rgba(74,144,226,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .card {
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border: none;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            padding: 12px 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .card-header i {
+            margin-left: 10px;
+            color: #4a90e2;
+            font-size: 1.1rem;
+        }
+        
+        .table {
+            margin-bottom: 0;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        .table th {
+            background-color: #f1f5f9;
+            font-weight: 700;
+            padding: 12px 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .table td {
+            padding: 10px 15px;
+            vertical-align: middle;
+        }
+        
+        .workout-day {
+            background-color: rgba(235, 244, 255, 0.5);
+        }
+        
+        .food-day {
+            background-color: rgba(254, 242, 242, 0.5);
+        }
+        
+        .action-buttons {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            padding: 12px;
+            box-shadow: 0 -3px 15px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 1000;
+        }
+        
+        .btn-custom {
+            border-radius: 50px;
+            padding: 10px 22px;
+            font-size: 1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .btn-custom:active {
+            transform: translateY(0);
+        }
+        
+        .btn-primary {
+            background-color: #4a90e2;
+            border-color: #4a90e2;
+        }
+        
+        .btn-success {
+            background-color: #38a169;
+            border-color: #38a169;
+        }
+        
+        ul.mb-0 {
+            padding-right: 1.2rem;
+        }
+        
+        ul.mb-0 li {
+            margin-bottom: 5px;
+        }
+        
+        /* تحسينات أنماط الطباعة */
+        @media print {
+            body {
+                background-color: white;
+            }
+            
+            .action-buttons, .nav-pills {
+                display: none !important;
+            }
+            
+            .tab-pane {
+                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+            }
+            
+            .header {
+                background: #4a90e2 !important;
+                color: black !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                break-inside: avoid;
+            }
+            
+            .card-header {
+                background: #f1f5f9 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .workout-day, .food-day {
+                background-color: rgba(240, 240, 240, 0.3) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+        
+        /* تحسينات للأجهزة المحمولة */
+        @media (max-width: 576px) {
+            .table th, .table td {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .card-header {
+                padding: 10px 12px;
+            }
+            
+            .btn-custom {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>خطة إبراهيم الرياضية والغذائية</h1>
+            <p>برنامج بسيط لمدة 10 أيام في رمضان</p>
+        </div>
+
+        <ul class="nav nav-pills justify-content-center mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-workout-tab" data-bs-toggle="pill" data-bs-target="#pills-workout" type="button" role="tab">التمارين</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-food-tab" data-bs-toggle="pill" data-bs-target="#pills-food" type="button" role="tab">الغذاء</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-meals-tab" data-bs-toggle="pill" data-bs-target="#pills-meals" type="button" role="tab">وجبات مقترحة</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-tips-tab" data-bs-toggle="pill" data-bs-target="#pills-tips" type="button" role="tab">النصائح</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+            <!-- جدول التمارين -->
+            <div class="tab-pane fade show active" id="pills-workout" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-dumbbell"></i> جدول التمارين (20د كارديو + 30د أثقال)
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th width="15%">اليوم</th>
+                                        <th>تمارين الكارديو (20د)</th>
+                                        <th>تمارين الأثقال (30د)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="workout-day">
+                                        <td><strong>1</strong></td>
+                                        <td>مشي سريع + جري متقطع</td>
+                                        <td>الصدر والترايسبس</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2</strong></td>
+                                        <td>دراجة ثابتة</td>
+                                        <td>الظهر والبايسبس</td>
+                                    </tr>
+                                    <tr class="workout-day">
+                                        <td><strong>3</strong></td>
+                                        <td>قفز متنوع</td>
+                                        <td>الأكتاف والبطن</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>4</strong></td>
+                                        <td>تمارين الدرج</td>
+                                        <td>الأرجل</td>
+                                    </tr>
+                                    <tr class="workout-day">
+                                        <td><strong>5</strong></td>
+                                        <td>حركات سباحة</td>
+                                        <td>الصدر والترايسبس</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>6</strong></td>
+                                        <td>تمرين بيربي + مشي</td>
+                                        <td>الظهر والبايسبس</td>
+                                    </tr>
+                                    <tr class="workout-day">
+                                        <td><strong>7</strong></td>
+                                        <td>قرفصاء مع قفز</td>
+                                        <td>الأكتاف والبطن</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>8</strong></td>
+                                        <td>تمارين متنوعة</td>
+                                        <td>الأرجل</td>
+                                    </tr>
+                                    <tr class="workout-day">
+                                        <td><strong>9</strong></td>
+                                        <td>تمارين الحبل</td>
+                                        <td>تمارين مركبة</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>10</strong></td>
+                                        <td>تمارين تاباتا</td>
+                                        <td>الجسم الكامل</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- جدول الغذاء -->
+            <div class="tab-pane fade" id="pills-food" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-utensils"></i> جدول الغذاء اليومي (1800 سعرة)
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>الوجبة</th>
+                                        <th>المكونات</th>
+                                        <th>السعرات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="food-day">
+                                        <td><strong>إفطار</strong><br><small>بعد المغرب</small></td>
+                                        <td>
+                                            <ul class="mb-0 ps-3">
+                                                <li>دجاج (200غ)</li>
+                                                <li>أرز (نصف كوب)</li>
+                                                <li>سلطة + زيت</li>
+                                                <li>شوربة + تمر</li>
+                                            </ul>
+                                        </td>
+                                        <td>800</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>وجبة ثانية</strong><br><small>10 مساءً</small></td>
+                                        <td>
+                                            <ul class="mb-0 ps-3">
+                                                <li>برجر دجاج أو لحم (150غ)</li>
+                                                <li>خبز صغير</li>
+                                                <li>خضار</li>
+                                            </ul>
+                                        </td>
+                                        <td>500</td>
+                                    </tr>
+                                    <tr class="food-day">
+                                        <td><strong>سحور</strong><br><small>2 صباحاً</small></td>
+                                        <td>
+                                            <ul class="mb-0 ps-3">
+                                                <li>3 بيض + دجاج (100غ)</li>
+                                                <li>أو لحم مفروم (150غ)</li>
+                                                <li>خضار + خبز أسمر</li>
+                                            </ul>
+                                        </td>
+                                        <td>500</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <i class="fas fa-exchange-alt"></i> خيارات بديلة للوجبات
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>الوجبة</th>
+                                        <th>البدائل</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>البروتين</strong></td>
+                                        <td>دجاج، لحم، تونة، سمك، بيض</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>الكربوهيدرات</strong></td>
+                                        <td>أرز، بطاطا، خبز، شوفان</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>أطباق كاملة</strong></td>
+                                        <td>شاورما دجاج، برياني، كفتة، مسحب، فاهيتا</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم الوجبات المقترحة -->
+            <div class="tab-pane fade" id="pills-meals" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-utensils"></i> وجبات الإفطار المقترحة
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th width="15%">اليوم</th>
+                                        <th>الوجبة المقترحة</th>
+                                        <th width="20%">ملاحظات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="food-day">
+                                        <td><strong>1</strong></td>
+                                        <td>
+                                            <strong>طبق أرز بالدجاج:</strong> صدر دجاج (200غ)، أرز (نصف كوب)، سلطة، شوربة عدس
+                                        </td>
+                                        <td>800 سعرة حرارية</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2</strong></td>
+                                        <td>
+                                            <strong>برجر دجاج منزلي:</strong> دجاج مفروم (250غ)، خبز برجر، بطاطس مشوية، خضار
+                                        </td>
+                                        <td>800 سعرة حرارية</td>
+                                    </tr>
+                                    <tr class="food-day">
+                                        <td><strong>3</strong></td>
+                                        <td>
+                                            <strong>شاورما دجاج:</strong> دجاج (200غ)، خبز صاج، طحينة، خضار، شوربة
+                                        </td>
+                                        <td>800 سعرة حرارية</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>4</strong></td>
+                                        <td>
+                                            <strong>لحم مشوي:</strong> لحم بقري (200غ)، بطاطا مشوية، سلطة يونانية، شوربة فطر
+                                        </td>
+                                        <td>800 سعرة حرارية</td>
+                                    </tr>
+                                    <tr class="food-day">
+                                        <td><strong>5</strong></td>
+                                        <td>
+                                            <strong>مسحب دجاج:</strong> دجاج (200غ)، خبز عربي، سلطة فتوش، شوربة عدس
+                                        </td>
+                                        <td>800 سعرة حرارية</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <i class="fas fa-moon"></i> وجبات السحور المقترحة
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th width="15%">اليوم</th>
+                                        <th>الوجبة المقترحة</th>
+                                        <th width="20%">ملاحظات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="food-day">
+                                        <td><strong>1</strong></td>
+                                        <td>
+                                            <strong>أومليت بروتين:</strong> 3 بيض، دجاج (100غ)، خضروات، خبز أسمر
+                                        </td>
+                                        <td>500 سعرة حرارية</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2</strong></td>
+                                        <td>
+                                            <strong>كفتة سريعة:</strong> لحم مفروم (150غ)، سلطة خضراء، لبنة، خبز
+                                        </td>
+                                        <td>500 سعرة حرارية</td>
+                                    </tr>
+                                    <tr class="food-day">
+                                        <td><strong>3</strong></td>
+                                        <td>
+                                            <strong>سلطة تونة غنية:</strong> تونة، بيض مسلوق (2)، خضار، زيت زيتون
+                                        </td>
+                                        <td>500 سعرة حرارية</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>4</strong></td>
+                                        <td>
+                                            <strong>شوفان بالبروتين:</strong> شوفان (نصف كوب)، حليب، بروتين، توت
+                                        </td>
+                                        <td>500 سعرة حرارية</td>
+                                    </tr>
+                                    <tr class="food-day">
+                                        <td><strong>5</strong></td>
+                                        <td>
+                                            <strong>فاهيتا دجاج:</strong> دجاج (120غ)، فلفل، بصل، خبز تورتيلا، جبن خفيف
+                                        </td>
+                                        <td>500 سعرة حرارية</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <i class="fas fa-clock"></i> وجبات منتصف الليل المقترحة (الساعة 10 مساءً)
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th width="15%">اليوم</th>
+                                        <th>الوجبة المقترحة</th>
+                                        <th width="20%">ملاحظات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>1</strong></td>
+                                        <td>
+                                            <strong>سندويش لحم:</strong> لحم مفروم (150غ)، خبز برجر، خضروات، حليب
+                                        </td>
+                                        <td>500 سعرة حرارية</td>
+                                    </tr>
+                                    <tr class="food-day">
+                                        <td><strong>2</strong></td>
+                                        <td>
+                                            <strong>وعاء بروتين:</strong> دجاج (150غ)، بيضة، جبن قريش، خضروات، زيت زيتون
+                                        </td>
+                                        <td>500 سعرة حرارية</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>3</strong></td>
+                                        <td>
+                                            <strong>طبق أرز بالدجاج:</strong> دجاج (150غ)، أرز بني (ربع كوب)، خضار مطبوخة
+                                        </td>
+                                        <td>500 سعرة حرارية</td>
+                                    </tr>
+                                    <tr class="food-day">
+                                        <td><strong>4</strong></td>
+                                        <td>
+                                            <strong>سلطة سيزر:</strong> دجاج (150غ)، خس روماني، خبز محمص، جبن، صلصة خفيفة
+                                        </td>
+                                        <td>500 سعرة حرارية</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>5</strong></td>
+                                        <td>
+                                            <strong>ستيك رفيع:</strong> لحم (120غ)، خبز صغير، خضار مشكلة، صلصة خردل خفيفة
+                                        </td>
+                                        <td>500 سعرة حرارية</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-tips" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-lightbulb"></i> نصائح مهمة
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <h5><i class="fas fa-apple-alt text-success"></i> نصائح غذائية</h5>
+                            <ol>
+                                <li>اشرب 2-3 لتر ماء بين الإفطار والسحور</li>
+                                <li>تناول 20-25غ بروتين بكل وجبة</li>
+                                <li>تجنب المقليات والدهون</li>
+                                <li>حضّر الوجبات مسبقاً</li>
+                                <li>قلل الكربوهيدرات بالسحور</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <h5><i class="fas fa-heartbeat text-danger"></i> نصائح رياضية</h5>
+                            <ol>
+                                <li>تمرن بعد 1-2 ساعة من الإفطار</li>
+                                <li>خفف شدة التمارين بنسبة 20-30%</li>
+                                <li>اشرب ماء أثناء التمرين</li>
+                                <li>لا تجهد نفسك زيادة في رمضان</li>
+                                <li>ركز على جودة التمرين لا مدته</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script>
+        // تحسين التصدير باستخدام مزيج من التقنيات للحصول على أفضل نتيجة
+        document.getElementById('saveImage').addEventListener('click', function() {
+            // إنشاء نسخة من المحتوى للتصدير
+            const container = document.querySelector('.container');
+            const clonedContainer = container.cloneNode(true);
+            
+            // تطبيق أنماط خاصة للتصدير
+            clonedContainer.style.backgroundColor = 'white';
+            clonedContainer.style.padding = '20px';
+            clonedContainer.style.width = '100%';
+            clonedContainer.style.maxWidth = '768px';
+            clonedContainer.style.margin = '0 auto';
+            clonedContainer.style.position = 'absolute';
+            clonedContainer.style.left = '-9999px';
+            clonedContainer.style.top = '0';
+            
+            // إزالة عناصر التنقل والأزرار من النسخة
+            const actionButtons = clonedContainer.querySelector('.action-buttons');
+            if (actionButtons) actionButtons.remove();
+            
+            const navPills = clonedContainer.querySelector('.nav-pills');
+            if (navPills) navPills.remove();
+            
+            // إظهار جميع علامات التبويب
+            const tabPanes = clonedContainer.querySelectorAll('.tab-pane');
+            tabPanes.forEach(pane => {
+                pane.classList.add('show', 'active');
+                pane.classList.remove('fade');
+                pane.style.marginBottom = '20px';
+                pane.style.paddingBottom = '15px';
+                pane.style.borderBottom = '1px solid #ddd';
+            });
+            
+            document.body.appendChild(clonedContainer);
+            
+            // إضافة عنوان خاص للتصدير
+            const exportTitle = document.createElement('div');
+            exportTitle.innerHTML = '<h2 style="text-align:center;margin-bottom:20px;color:#4a90e2;padding-bottom:10px;border-bottom:2px solid #4a90e2">خطة إبراهيم الرياضية والغذائية الكاملة</h2>';
+            clonedContainer.insertBefore(exportTitle, clonedContainer.firstChild);
+            
+            // إضافة التاريخ
+            const dateFooter = document.createElement('div');
+            const today = new Date();
+            dateFooter.innerHTML = '<p style="text-align:center;margin-top:20px;color:#666;font-size:12px">تم إنشاء هذه الخطة بتاريخ: ' + today.toLocaleDateString('ar-SA') + '</p>';
+            clonedContainer.appendChild(dateFooter);
+            
+            alert('جاري إنشاء الصورة، هذا قد يستغرق بضع ثوانٍ...');
+            
+            // استخدام dom-to-image للحصول على جودة أفضل
+            setTimeout(() => {
+                domtoimage.toPng(clonedContainer, {
+                    quality: 0.95,
+                    bgcolor: 'white',
+                    width: clonedContainer.offsetWidth,
+                    height: clonedContainer.offsetHeight,
+                    style: {
+                        'transform': 'scale(1)',
+                        'transform-origin': 'top left'
+                    }
+                })
+                .then(function (dataUrl) {
+                    // تنظيف العنصر المستنسخ بعد التصدير
+                    document.body.removeChild(clonedContainer);
+                    
+                    // إنشاء رابط التنزيل
+                    const link = document.createElement('a');
+                    link.download = 'خطة_إبراهيم_الرياضية.png';
+                    link.href = dataUrl;
+                    link.click();
+                })
+                .catch(function (error) {
+                    console.error('حدث خطأ أثناء تصدير الصورة:', error);
+                    
+                    // إذا فشلت الطريقة الأولى، جرب html2canvas كبديل
+                    html2canvas(clonedContainer, {
+                        allowTaint: true,
+                        useCORS: true,
+                        scale: 2,
+                        backgroundColor: 'white',
+                        logging: false
+                    }).then(canvas => {
+                        document.body.removeChild(clonedContainer);
+                        
+                        // تحويل الكانفس إلى صورة بجودة عالية
+                        const imageData = canvas.toDataURL('image/png', 1.0);
+                        const a = document.createElement('a');
+                        a.setAttribute('download', 'خطة_إبراهيم_الرياضية.png');
+                        a.setAttribute('href', imageData);
+                        a.click();
+                    });
+                });
+            }, 500);
+        });
+        
+        // تحسين الطباعة
+        document.getElementById('printBtn').addEventListener('click', function() {
+            // تجهيز المحتوى للطباعة
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            let originalDisplayStates = [];
+            
+            tabPanes.forEach(pane => {
+                originalDisplayStates.push({
+                    element: pane,
+                    classes: pane.getAttribute('class')
+                });
+                pane.classList.add('show', 'active');
+                pane.classList.remove('fade');
+            });
+            
+            // طباعة
+            window.print();
+            
+            // إعادة العناصر كما كانت
+            setTimeout(() => {
+                originalDisplayStates.forEach(state => {
+                    state.element.setAttribute('class', state.classes);
+                });
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
